@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/Servicios/ClientesService.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>23</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Metodos/MetodosCliente.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/DetVentasService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/Menu.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/MiCarrito.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/ProveedoresService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Metodos/MetodosProveedor.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Productos.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/RegistroCliente.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Envio.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/ProductoDetalles.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/ClientesService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Persona.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Proveedores.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/RegistrarMetodoPago.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/MostrarProductos.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Clientes.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/DomicilioService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/InicioProveedores.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/InformacionUsuario.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/MetodoDePago.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Inicio.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/conexiones/ConexionOracle.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/ImageReader.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Carrito.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/proyecto_basesdatos/Proyecto_BasesDatos.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/DetallesProducto.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Categorias.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/ImagenService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/InicioClientes.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/MostrarProductos.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Domicilio.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/proyecto_basesdatos/PBA.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/RealizarCompra.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Imagen.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/RegistroProducto.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/ImgTabla.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/IniciarSesionCliente.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/MostrarDetallesProducto.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/DetVentas.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/EnvioService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/ComprasService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/Cliente/MetodoPago.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/ProductosService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/CategoriasService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/InterfazGrafica/RegistroProv.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Servicios/MetodosDePagoService.java</file>
+            <file>file:/C:/Users/Juan%20Pablo/Documents/NetBeansProjects/Proyecto_BasesDatos/src/Clases/Compra.java</file>
+        </group>
+    </open-files>
+</project-private>

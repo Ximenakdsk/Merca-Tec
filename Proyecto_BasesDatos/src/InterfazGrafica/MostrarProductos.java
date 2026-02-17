@@ -1,0 +1,352 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package InterfazGrafica;
+
+import Clases.Imagen;
+import Clases.Productos;
+import Servicios.ImagenService;
+import Servicios.ProductosService;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author Juan Pablo
+ */
+public class MostrarProductos extends javax.swing.JFrame {
+    private ArrayList<Productos> listaProductos; 
+    private void PropiedadesTabla() throws SQLException{
+        ProductosService PS = new ProductosService();
+        ImagenService IS = new ImagenService();
+        tblProductos.setDefaultRenderer(Object.class, new ImgTabla());
+        String titulos[] = {"Id", "Proveedor", "Nombre", "Descripcion", "Precio"};
+        DefaultTableModel tm = new DefaultTableModel(null, titulos);
+        Object ob[] = new Object[5];
+        String idProv = txtIdProd.getText();
+        System.out.println(idProv);
+        for (Productos o : listaProductos) {
+            ob[0] = o.getIdProd();
+            System.out.println("JOSE");
+            ob[1] = o.getIdProv();
+            ob[2] = o.getNombre();
+            System.out.println("RAW");
+            ob[3] = o.getDescripcion();
+            ob[4] = o.getPrecio();
+            tm.addRow(new Object[]{ob[1], ob[2], ob[3], ob[4]});
+        }
+        tm.addRow(new Object[]{"Fabian", "ROJO", new JLabel(new ImageIcon())});
+        tblProductos.setRowHeight(50);
+        tblProductos.setModel(tm);
+    }
+    DefaultTableModel modelo;
+    /**
+     * Creates new form MostrarProductos
+     */
+    public MostrarProductos() throws SQLException {
+        listaProductos = extraerProductos(listaProductos) ;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        modelo = (DefaultTableModel) tblProductos.getModel();
+        ajustarTabla();
+//        PropiedadesTabla();
+        
+    }
+    
+    public ArrayList<Productos> extraerProductos(ArrayList<Productos> productos) throws SQLException{
+        ProductosService PS = new ProductosService();
+        productos = PS.readAllProducts();
+        for (Productos p : productos) {
+            System.out.println("Nombre: " + p.getNombre());
+        }
+        return productos;
+    }
+    
+    public void ListarProductos() throws SQLException, IOException{
+        System.out.println("HOLA");
+        ArrayList<Productos> listaProductos = null;
+        ProductosService PS = new ProductosService();
+        ImagenService IS = new ImagenService();
+        modelo = (DefaultTableModel)tblProductos.getModel();
+        modelo.setRowCount(0);
+        System.out.println("pedro");
+        Object ob[] = new Object[5];
+        String idProv = txtIdProd.getText();
+        System.out.println(idProv);
+        listaProductos = PS.readAllProducts();
+        System.out.println("pepe");
+        for (Productos o : listaProductos) {
+            ob[0] = o.getIdProd();
+            System.out.println("JOSE");
+            ob[1] = o.getIdProv();
+            ob[2] = o.getNombre();
+            System.out.println("RAW");
+            ob[3] = o.getDescripcion();
+            ob[4] = o.getPrecio();
+            
+            
+            
+            //Instrucciones de depuracion
+            System.out.println("ID PROD: " + ob[0]);
+            System.out.println("ID PROV: " + ob[1]);
+            System.out.println("NOMBRE: " + ob[2]);
+            System.out.println("Descripcion: " + ob[3]);
+            System.out.println("Precio: " + ob[4]);
+            modelo.addRow(ob);
+        }
+        tblProductos.setModel(modelo);
+    }
+    
+    private void ajustarTabla(){
+        tblProductos.setRowHeight(60);
+    }
+    
+    class ImageRenderer extends DefaultTableCellRenderer{
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) { 
+            if (value instanceof ImageIcon) { 
+                JLabel label = new JLabel(); 
+                label.setIcon((ImageIcon) value); 
+                return label; 
+            } else { 
+                return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            } 
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProductos = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtIdProd = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        btnMostrarDetalles = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+
+        tblProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Proveedor", "Nombre", "Descripcion", "Precio"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProductos);
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel1.setText("Productos");
+
+        jLabel2.setText("ID Producto");
+
+        btnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnMostrarDetalles.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnMostrarDetalles.setText("Mostrar Detalles");
+        btnMostrarDetalles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarDetallesActionPerformed(evt);
+            }
+        });
+
+        btnRegresar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMostrarDetalles)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegresar)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnBuscar))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnRegresar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMostrarDetalles)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        System.out.println("HOLA");
+        try {
+            // TODO add your handling code here:
+            ListarProductos();
+        } catch (SQLException ex) {
+            Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnMostrarDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDetallesActionPerformed
+        // TODO add your handling code here:
+        ArrayList<ImageIcon> listaImagenes = null;
+        ProductosService PS = new ProductosService();
+        Productos prod = null;
+        ImagenService IS = new ImagenService();
+        ImageIcon imgF = null;
+        ImageIcon img = null;
+        int selectedRow = tblProductos.getSelectedRow(); 
+        if (selectedRow != -1) { 
+            String idProd = (String) modelo.getValueAt(selectedRow, 0);
+         String idProv = (String) modelo.getValueAt(selectedRow, 1); 
+         String nombre = (String) modelo.getValueAt(selectedRow, 2); 
+         String descripcion = (String) modelo.getValueAt(selectedRow, 3); 
+         double precio = (double) modelo.getValueAt(selectedRow, 4);
+            for (Productos p : listaProductos) {
+                if (p.getIdProd().equals(idProd)) {
+                    prod = p;
+                    System.out.println("Producto: " + prod.getIdProd());
+                    try {
+                        imgF = IS.cargarImagen(prod.getIdProd());
+                        new MostrarDetallesProducto(idProd, idProv, nombre, descripcion, precio, imgF).setVisible(true);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        } else { 
+            JOptionPane.showMessageDialog(this, "Selecciona un producto primero.");
+        }
+    }//GEN-LAST:event_btnMostrarDetallesActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        InicioProveedores ini = new InicioProveedores();
+        ini.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MostrarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MostrarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MostrarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MostrarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new MostrarProductos().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnMostrarDetalles;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblProductos;
+    private javax.swing.JTextField txtIdProd;
+    // End of variables declaration//GEN-END:variables
+}
