@@ -1,116 +1,102 @@
-# 🛒 Merca-Tec  
-### Sistema de Compras en Línea  
+# 🛒 Merca-Tec: E-Commerce Database System
 
-## 📌 Descripción del Proyecto
+> A robust online shopping management system integrated with Oracle Database, featuring a Java Swing desktop interface for real-time transaction handling.
 
-**Merca-Tec** es un sistema de compras por Internet desarrollado como proyecto académico para la materia de Fundamentos de Bases de Datos.
+![Java](https://img.shields.io/badge/Java-17%2B-ED8B00?style=for-the-badge&logo=openjdk)
+![Oracle](https://img.shields.io/badge/Oracle-Database-F80000?style=for-the-badge&logo=oracle)
+![Swing](https://img.shields.io/badge/Frontend-Java%20Swing-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-La empresa "Merca-Tec" requiere una plataforma que permita la venta de productos en línea organizados por categorías, gestionando clientes, compras, pagos y proveedores, utilizando una base de datos Oracle y un backend desarrollado en Java.
+## 📖 About the Project
 
-El sistema permite registrar ventas, controlar productos, administrar categorías y validar el esquema físico de la base de datos mediante un prototipo funcional conectado a Oracle.
+**Merca-Tec** is an academic software engineering project developed for the **Database Fundamentals** course. The platform simulates a complete e-commerce ecosystem, managing everything from product categorization and supplier logistics to customer transactions and payment validation.
 
----
+The primary focus was the design and implementation of a highly normalized relational schema in **Oracle SQL**, validated through a functional Java prototype.
 
-## 🎯 Objetivos del Proyecto
+### ✨ Key Features
 
-- Diseñar un modelo Entidad-Relación (E-R)
-- Transformar el modelo E-R a modelo relacional
-- Implementar el esquema físico en Oracle
-- Crear sentencias SQL de creación e inserción
-- Desarrollar un prototipo en Java conectado a la base de datos
-- Validar la correcta implementación del esquema físico
-
----
-
-## 🏗️ Arquitectura del Sistema
-
-El sistema está compuesto por:
-
-- 🗄️ **Base de Datos:** Oracle Database
-- ☕ **Backend:** Java
-- 💾 **Lenguaje de consultas:** SQL
-- 🧩 **Modelo de datos:** Modelo Relacional
+* **Inventory Management:** Dynamic product control organized by categories and suppliers.
+* **Transaction Processing:** Automated sales registration with total calculation and stock validation.
+* **Secure Payments:** Integrated validation for Credit and Debit card transactions.
+* **Email Integration:** Automated delivery of purchase details to customers upon checkout.
+* **Database Integrity:** Strict enforcement of referential integrity, constraints, and business rules.
 
 ---
 
-## 🗃️ Modelo de Datos
+## 🛠️ Tech Stack
 
-El sistema contempla las siguientes entidades principales:
-
-- **Categoría**
-- **Producto**
-- **Proveedor**
-- **Cliente**
-- **Compra**
-- **Detalle_Compra**
-- **Pago**
-
-### Reglas del Negocio
-
-- Cada producto pertenece a una sola categoría.
-- Cada producto tiene un proveedor.
-- Un cliente puede realizar una o múltiples compras.
-- Cada compra puede incluir uno o más productos.
-- El pago solo puede realizarse con tarjeta de crédito o débito.
-- Cada compra registra:
-  - Fecha
-  - Cantidad de artículos
-  - Total pagado
-- Cada producto incluye una imagen representativa.
-- El cliente recibe el detalle de su compra vía correo electrónico.
+* **Database:** Oracle Database (Physical Schema, Constraints, SQL Scripts).
+* **Backend:** Java (JDBC for database connectivity).
+* **Frontend:** Java Swing (Desktop GUI for administrative and customer views).
+* **Design Tools:** Entity-Relationship (E-R) Modeling.
 
 ---
 
-## 🧮 Estructura General del Modelo Relacional
+## 🏗️ System Architecture & Business Rules
 
-Ejemplo simplificado:
+The system follows a modular architecture where the **Java Swing** frontend communicates with the **Oracle** backend via JDBC.
 
-- CATEGORIA (id_categoria, nombre)
-- PROVEEDOR (id_proveedor, nombre, contacto)
-- PRODUCTO (id_producto, nombre, precio, descripcion, id_categoria, id_proveedor, imagen)
-- CLIENTE (id_cliente, nombre, correo)
-- COMPRA (id_compra, fecha, total, id_cliente)
-- DETALLE_COMPRA (id_detalle, id_compra, id_producto, cantidad, subtotal)
-- PAGO (id_pago, id_compra, tipo_pago, fecha_pago)
+### Core Business Logic:
+1.  **Normalization:** 1:N relationships correctly normalized across all entities.
+2.  **Payment Logic:** Strict validation restricting payments to specific card types (Credit/Debit).
+3.  **Data Integrity:** Implementation of `NOT NULL`, `PRIMARY KEY`, and `FOREIGN KEY` constraints to ensure data consistency.
+4.  **Automation:** Automatic calculation of subtotal and total amounts within the `DETALLE_COMPRA` module.
 
 ---
 
-## 📜 Scripts SQL Incluidos
+## 🗃️ Data Model (Relational Schema)
 
-El proyecto incluye:
+The core database consists of the following entities:
 
-- ✔️ Script de creación de tablas
-- ✔️ Definición de claves primarias y foráneas
-- ✔️ Restricciones (constraints)
-- ✔️ Inserts de prueba
-- ✔️ Consultas de validación
+* **CATEGORIA / PRODUCTO / PROVEEDOR:** Logistics and inventory core.
+* **CLIENTE / COMPRA:** User management and order tracking.
+* **DETALLE_COMPRA / PAGO:** Transactional granularity and financial records.
 
 ---
 
-## 🔐 Restricciones Implementadas
+## 📂 Project Structure
 
-- Claves primarias
-- Claves foráneas
-- Restricciones NOT NULL
-- Integridad referencial
-- Validación de tipo de pago (Crédito/Débito)
-- Relaciones 1:N correctamente normalizadas
+```text
+SIstemaComprasLinea_BD/
+├── src/
+│   ├── connection/     # Oracle JDBC Connection logic
+│   ├── view/           # Java Swing GUI Components (Frontend)
+│   ├── controller/     # Event handling and business logic
+│   ├── model/          # Data transfer objects (DTO)
+│   └── main/           # Application entry point
+├── sql/
+│   ├── ddl_tables.sql  # Schema creation scripts
+│   ├── dml_inserts.sql # Seed data and test records
+│   └── queries.sql     # Validation and reporting queries
+├── docs/               # E-R and Relational Diagrams
+└── README.md
+```
+## 🚀 Installation & Setup
 
----
+### 1. Database Configuration
+* **Ensure** you have **Oracle Database** installed and running.
+* **Execute** the scripts in `/sql/ddl_tables.sql` to generate the physical schema.
+* **(Optional)** Run `/sql/dml_inserts.sql` to populate the system with test data.
 
-## 💻 Prototipo en Java
+### 2. Java Application
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Ximenakdsk/SIstemaComprasLinea_BD.git
+Configure Driver:
 
-El backend desarrollado en Java permite:
+Add the ojdbc.jar driver to your project's build path to enable Oracle connectivity.
 
-- Conexión a la base de datos Oracle
-- Validación del esquema físico
-- Inserción de registros
-- Consulta de productos
-- Registro de compras
-- Cálculo automático del total
-- Validación de pago
+Update Connection:
 
----
+Edit the connection string in src/connection/DatabaseConnection.java with your specific Oracle credentials:
 
-## 📂 Estructura del Proyecto
+User
 
+Password
+
+Host / SID
+
+👩‍💻 Authors
+Merca-Tec – Database Engineering Project
+
+*   **[Ximenakdsk](https://github.com/Ximenakdsk)** - *Ximena Hernández*
